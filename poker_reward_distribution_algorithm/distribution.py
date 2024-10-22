@@ -35,7 +35,7 @@ def distribution(combos, bets):
                 if j not in place:
                     # loss IS A MINIMUM BETWEEN BET REMINDERS OF i-PLAYER("WINNER") AND j-PLAYER("LOSER")
                     loss = min(bets[j], bet)
-                    # ADDING TO LOSS DIVIDED BY PLAYERS-IN-TOP TO reward
+                    # ADDING A LOSS DIVIDED BY PLAYERS-IN-TOP TO reward
                     reward += loss / share
                     # TAKING LOST CHIPS FROM LOSER
                     bets[j] -= loss

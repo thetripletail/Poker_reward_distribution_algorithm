@@ -39,13 +39,13 @@ def distribution(combos, bets):
                     reward += loss / share
                     # TAKING LOST CHIPS FROM LOSER
                     bets[j] -= loss
-            for m, j in enumerate(place):
-                # ADDING REWARD TO PLAYERS-IN-TOP LEFT
-                if m >= n:
-                    # SUBTRACT i-PLAYER BET REMINDER FROM THEM
-                    bets[j] -= bet
-                    # ADDING REWARD TO distributed BY THEIR PLAYER-INDEXES
-                    distributed[j] += reward + bet
+            # ADDING REWARD TO PLAYERS-IN-TOP LEFT
+            for m in range(1, share+1):
+                winner_index = place[-m]
+                # SUBTRACT i-PLAYER BET REMINDER FROM THEM
+                bets[winner_index] -= bet
+                # ADDING REWARD TO distributed BY THEIR PLAYER-INDEXES
+                distributed[winner_index] += reward + bet
     # bets-LIST MUST CONTAIN ONLY ZEROS IF EVERYTHING WENT CORRECTLY
     # print(bets)   # <--- UNCOMMENT THIS TO CHECK
     return distributed
